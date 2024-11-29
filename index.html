@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta  name="viewport" charset="utf-8">
+  <title>Exercices</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script> 
+</head>
+<body>
+  <p>Exercices</p>
+  <button onclick="ex1()">Exercice 1</button>
+  <button onclick="ex2()">Exercice 2</button>
+  <button onclick="ex3()">Exercice 3</button>
+  <button onclick="ex4()">Exercice 4</button>
+  <button onclick="ex5()">Exercice 5</button>
+  <br>
+  <button onclick="gambling()">Gambling time !</button>
+  <button onclick="jeu_du_cochon()">Jeu du cochon.</button>
+  <table>
+    <tbody>
+      <tr>
+        <th id = "txt_points">de points :</th>
+        <td id = "nb_points"></td>
+      </tr>
+      <tr>
+        <th>Vos dettes :</th>
+        <td id = "nb_debt"></td>
+      </tr>
+      <tr>
+        <th>A payer :</th>
+        <td id = "amount_to_pay"></td>
+      </tr>
+    </tbody>
+  </table>
+  <button onclick="pay_debt()">Pay debt</button>
+  <p>--Investissement--</p>
+  <p id="var_fun"></p>
+  <canvas id="myChart" style="width:100%;max-width:400px"></canvas> 
+  <button onclick="buy()">Buy</button>
+  <button onclick="hold()">Hold </button>
+  <button onclick="sell()">Sell</button>
+  <table>
+    <tbody>
+      <tr>
+        <th >Valeur d'une action :</th>
+        <td id="share_value"></td>
+      </tr>
+      <tr>
+        <th>Vos actions :</th>
+        <td id="nb_share"></td>
+      </tr>
+      <tr>
+        <th>Bénefice moyen de vos actions :</th>
+        <td id="avg_share_value"></td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+  <button onclick="restart()">Restart</button>
+  <script src="script.js"></script>
+</body>
+</html>
