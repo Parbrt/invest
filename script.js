@@ -379,7 +379,7 @@ function sell(){
     }
 }
 function pay_debt(){
-    if (nb_points>=Math.ceil(interets*nb_debt)){
+    if (nb_points>=Math.ceil(interets*nb_debt) && nb_debt>0){
         nb_points-=Math.ceil(interets*nb_debt);
         nb_debt = 0;
         tick();
