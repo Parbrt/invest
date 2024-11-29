@@ -113,7 +113,6 @@ function nom(){
     tick();
 }
 function guess(){
-    /*save();*/
     let rand_num = Math.floor(Math.random()*20)+1;
     let nb_guess = 4
     let guess ;
@@ -140,7 +139,6 @@ function guess(){
     tick();
 }
 function jeu_du_cochon(){
-    /*save();*/
     if (nb_points >0){
         let mise=0;
         
@@ -155,10 +153,9 @@ function jeu_du_cochon(){
         }else{
             alert("Perdu !")
             nb_points-=parseInt(mise);
-        }        
+        }     
+        tick();   
     }
-    tick();
-
 }
 function jeu(){
     let player1_score = 0;
@@ -219,7 +216,6 @@ function tour_de_jeu_bot(bot_score,player_score){
         bot_score += temp_score;
     }
     return bot_score;
-
 }
 function tour_de_jeu(player_score){
     let popup_state = true;
@@ -246,7 +242,6 @@ function tour_de_jeu(player_score){
     return player_score;
 }
 function gambling(){
-    /*save();*/
     if (nb_points >0){
         let mise;
         do{
@@ -266,8 +261,8 @@ function gambling(){
             alert("Perdu !");
             nb_points-=mise;
         }
+        tick();
     }
-    tick();
 }
 function hold(){
     let rand = Math.random();
@@ -369,11 +364,10 @@ function buy(){
         avg_share_value = (nb_share+buy_amount)!=0?(((nb_share * avg_share_value)+(buy_amount*share_value))/(parseInt(nb_share)+parseInt(buy_amount))):0;
         nb_share+=parseInt(buy_amount);
         nb_points-=(buy_amount*share_value);
+        tick();
     }
-    tick();
 }
 function sell(){
-    /*save();*/
     if(nb_share>0){
         let sell_amount = 0;
         do{
@@ -381,14 +375,13 @@ function sell(){
         }while(sell_amount > nb_share || sell_amount < 0 || !IaN(sell_amount));
         nb_share-=sell_amount;
         nb_points+=(sell_amount * share_value);
+        tick();
     }
-    tick();
 }
 function pay_debt(){
     if (nb_points>=Math.ceil(interets*nb_debt)){
         nb_points-=Math.ceil(interets*nb_debt);
         nb_debt = 0;
+        tick();
     }
-    tick();
 }
-up_down_management(last_value);
