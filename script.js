@@ -16,7 +16,7 @@ let minf_value = [0,0,0,0,0,0,0,0,0,0];
 let nb_share = 0;
 let share_value =Math.floor(last_value/(base_value/10));
 init();
-setInterval(tick(),2000);
+setInterval(() => tick(),1000);
 function init(){
     if(get_cookie("mon_prenom")!=""){
         nb_points = get_cookie("nb_points")!=""?(parseInt(get_cookie("nb_points"))):parseInt(0);
@@ -402,7 +402,8 @@ function up_down_management(new_value){
             
         },
         options: {
-            legend: {display: false}
+            animation : 0
+            ,legend: {display: false}
             ,scales: {
                 yAxes: [{ticks: {min: 1000, max:(last_value<20000? 25000:last_value+1000)}}],
               }
