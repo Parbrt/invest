@@ -97,70 +97,22 @@ function tick(){
 function roll_dice(){
     return Math.floor(Math.random()*6)+1;
 }
-function ex1(){
-    /*save();*/
+function bonjour(){
     alert("Bonjour"+(get_cookie("mon_prenom")!=""?(" "+get_cookie("mon_prenom")):"")+" !");
     if(!done1){
         nb_points ++;
+        tick();
     }
-    tick();
     done1 = true;
 }
-function ex2(){
-    /*save();*/
+function nom(){
     let mon_prenom=prompt('Quel est votre prénom ?')
     document.cookie = "mon_prenom="+mon_prenom;
     alert("Je m'appelle \""+ mon_prenom+"\"");
     txt_points = "Nombre de points de "+mon_prenom+" :";
     tick();
 }
-function ex3(){
-    /*save();*/
-    let sommeDepart=prompt('Quel est la somme de départ (entre 0 et 200) ?');
-
-    if (sommeDepart>=0 && sommeDepart<=200){
-        let somme=sommeDepart
-        let billets=[100,50,20,10,5,2,1,0.5,0.1,0.05,0.02,0.01];
-        
-        let rendu=[];
-        let alertOutput ="Il faut "
-        for (let k=0; k<length(billets); k++) {
-            rendu.append(0);
-        }
-        let i=0;
-        while (i<billets.length && somme>=billets[i]) {
-            somme=somme-billets[i];
-            rendu[i]++;
-        }
-        for (let j=0; j<billets.length; j++) {
-            if (rendu[j]!=0) {
-                alertOutput+="rendu[j] billet"+billets[j]!=1 ? "s " : " " + "de " + billets[j] + ", ";
-            }
-        }
-        alertOutput+="svp."
-        
-    }else{
-        let alertOutput = sommeDepart + " n'est pas compris entre 0 et 200 !";
-    }
-
-    alert(alertOutput);
-    tick();
-}
-function ex4(){
-    /*save();*/
-    let age = prompt("age ?");
-    const floor_ages = [0,9,11,13,15,17,21];
-    const cat_names = ["Vous ne jouez pas.","Poussin","Benjamin","Minime","Cadet","Junior","Sénior"];
-    let i=floor_ages.length-1;
-    let cat_name = cat_names[i];
-    while (age<floor_ages[i]){
-        i--;
-        cat_name = cat_names[i];
-    }
-    alert(cat_name!="Vous ne jouez pas."?("Vous allez jouer en " + cat_name) : cat_name);
-    tick();
-}
-function ex5(){
+function guess(){
     /*save();*/
     let rand_num = Math.floor(Math.random()*20)+1;
     let nb_guess = 4
