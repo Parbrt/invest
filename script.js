@@ -93,9 +93,6 @@ function tick(){
     document.cookie = "nb_points="+parseInt(nb_points);
     document.cookie = "nb_debt="+parseInt(nb_debt);
     document.cookie = "nb_share="+parseInt(nb_share);
-    if (nb_points >=Math.ceil(nb_debt*interets) && nb_debt != 0){
-        alert("Vous devriez rembourser vos dettes !")
-    }
 }
 function roll_dice(){
     return Math.floor(Math.random()*6)+1;
