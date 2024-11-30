@@ -46,14 +46,14 @@ function init(){
         nb_share_B = parseInt( getCookie( "nb_share_B" , 0 ) );
         share_B_value = Math.floor(  last_value_B / (  base_value_B / 10  ) );
 
-        txt_points = "Numbre of points of "+getCookie( "my_name" )+":";
+        txt_points = "number of points of "+getCookie( "my_name" )+":";
         interets = parseInt( getCookie( "interets" , 2 ) );
         tick();
     }else{
         nb_debt = 0;
         nb_points = 0;
         done1 = false;
-        txt_points = "Numbre of points:";
+        txt_points = "number of points:";
         //investment A
         avg_share_A_value=0;
         last_last_last_value_A = base_value_A;
@@ -129,10 +129,10 @@ function bonjour(){
     done1 = true;
 }
 function nom(){
-    let my_name=prompt( 'Quel est votre prénom ?' )
+    let my_name=prompt( "What's your name ?" )
     document.cookie = "my_name="+my_name;
-    alert( "Je m'appelle \""+ my_name+"\"" );
-    txt_points = "Nombre de points de "+my_name+" :";
+    alert( "My name is \""+ my_name+"\"" );
+    txt_points = "Nnumber of points of "+my_name+" :";
     tick();
 }
 function guess(){
@@ -142,9 +142,9 @@ function guess(){
     let flag = false;
     let status = "0"
     while( nb_guess>0 ){
-        guess = prompt( "Essayez un nombre ( entre 0 et 20 )"+( status=="0"?"":( " "+( status=="+"?"plus grand":"plus petit" ) ) )+".\n" + ( nb_guess>1?( nb_guess+" essais restants." ): "Dernier essai !" ) );
+        guess = prompt( "Try a "+( status=="0"?"":( " "+( status=="+"?"bigger":"smaller" ) ) )+"number ( between 0 and 20 ).\n" + ( nb_guess>1?( nb_guess+" remaining try." ): "Last try !" ) );
         if ( guess == rand_num ){
-            alert( "gagné !\n"+rand_num );
+            alert( "Victory !\n"+rand_num );
             flag = true;
             nb_points +=nb_guess;
             break;
@@ -156,7 +156,7 @@ function guess(){
         nb_guess --;
     }
     if ( !flag ){
-        alert( "Perdu !\nLe nombre était "+rand_num+"." );
+        alert( "Defeat !\nThe number was "+rand_num+"." );
         nb_points--;
     }
     tick();
@@ -166,15 +166,15 @@ function jeu_du_cochon(){
         let mise=0;
         
         do{
-            mise = prompt( "Combien misez vous ?\n( La mise doit etre <= "+nb_points+". )" );
+            mise = prompt( "How many do you bet ?\n( The bet gotta be <= "+nb_points+". )" );
         }while( mise > nb_points || !IaN( mise ) );
         let win=jeu();
         if( win ){
-            alert( "Vous avez gagné !\nVous gagnez "+mise+" points." );
+            alert( "Victory !\You win "+mise+" points." );
 
             nb_points+=parseInt( mise );
         }else{
-            alert( "Perdu !" )
+            alert( "Defeat !" )
             nb_points-=parseInt( mise );
         }     
         tick();   
@@ -184,12 +184,12 @@ function jeu(){
     let player1_score = 0;
     let player2_score = 0;
     while( player1_score<100 && player2_score<100 ){
-        alert( "Vous : "+player1_score+"\nLe bot : "+player2_score+"\nA vous !" );
+        alert( "You : "+player1_score+"\nThe bot : "+player2_score+"\nYour turn !" );
         player1_score = parseInt( tour_de_jeu( player1_score ) );
         if ( player1_score>=100 ){
             break;
         }
-        alert( "Vous : "+player1_score+"\nLe bot : "+player2_score+"\nAu tour du bot !" );
+        alert( "You : "+player1_score+"\nThe bot : "+player2_score+"\nThe bot turn !" );
         player2_score = parseInt( tour_de_jeu_bot( player2_score,player1_score ) );
         
 
@@ -251,7 +251,7 @@ function tour_de_jeu( player_score ){
         dice_2 = roll_dice();
         if ( dice_1 == 1 || dice_2 == 1 ) {
             temp_score = 0;
-            alert( dice_1+"\n"+dice_2+"\n\n Pas de points  ce tour ci !" );
+            alert( dice_1+"\n"+dice_2+"\n\n No point this turn !" );
             flag = true;
             break
         }else{
@@ -268,20 +268,20 @@ function gambling(){
     if ( nb_points >0 ){
         let mise;
         do{
-            mise = prompt( "Combien misez vous ?\n( La mise doit etre <= "+nb_points+". )" );
+            mise = prompt( "How much do you bet ?\n( The bet gotta be  <= "+nb_points+". )" );
         }while( mise>nb_points || mise<0 || !IaN( mise ) );
         let rand1 = Math.floor( Math.random()*10 )+1;
         let rand2 = Math.floor( Math.random()*10 )+1;
         let rand3 = Math.floor( Math.random()*10 )+1;
         alert( "-"+rand1+"-"+rand2+"-"+rand3+"-" );
         if ( rand1 == rand2 && rand1==rand3 ) {
-            alert( "Gagné !" );
+            alert( "Victory !" );
             nb_points+=4*mise;
         }else if ( rand1==rand2 || rand1==rand3 ||rand2==rand3 ) {
-            alert( "Gagné !" );
+            alert( "Victory !" );
             nb_points+=2*mise;
         }else{
-            alert( "Perdu !" );
+            alert( "Defeat !" );
             nb_points-=mise;
         }
         tick();
@@ -438,7 +438,7 @@ function buy_A(){
     if( nb_points>=share_A_value ){
         let buy_amount = 0; 
         do{
-            buy_amount=prompt( "Vous êtes sur le point d'acheter des actions.\nCombien en voulez-vous ?\n( Votre nombre de point vous permet d'en acheter "+Math.floor( nb_points/share_A_value )+". )" );
+            buy_amount=prompt( "You will buy shares.\nHow many do you want ?\n( Your point's amount allow you to buy "+Math.floor( nb_points/share_A_value )+". )" );
         }while( ( buy_amount*share_A_value )>nb_points || buy_amount<0 || !IaN( buy_amount ) );
         avg_share_A_value = ( nb_share_A+buy_amount )!=0?( ( ( nb_share_A * avg_share_A_value )+( buy_amount*share_A_value ) )/( parseInt( nb_share_A )+parseInt( buy_amount ) ) ):0;
         nb_share_A += parseInt( buy_amount );
@@ -451,7 +451,7 @@ function buy_B(){
     if( nb_points>=share_B_value ){
         let buy_amount = 0; 
         do{
-            buy_amount=prompt( "Vous êtes sur le point d'acheter des actions.\nCombien en voulez-vous ?\n( Votre nombre de point vous permet d'en acheter "+Math.floor( nb_points/share_B_value )+". )" );
+            buy_amount=prompt( "You will buy shares.\nHow many do you wanna buy ?\n( Your point's amount allow you to buy "+Math.floor( nb_points/share_B_value )+". )" );
         }while( ( buy_amount*share_B_value )>nb_points || buy_amount<0 || !IaN( buy_amount ) );
         avg_share_B_value = ( nb_share_B+buy_amount )!=0?( ( ( nb_share_B * avg_share_B_value )+( buy_amount*share_B_value ) )/( parseInt( nb_share_B )+parseInt( buy_amount ) ) ):0;
         nb_share_B += parseInt( buy_amount );
@@ -463,7 +463,7 @@ function sell_A(){
     if( nb_share_A>0 ){
         let sell_amount = 0;
         do{
-            sell_amount = prompt( "Vous êtes sur le point de vendre des actions.\nCombien voulez-vous en vendre ?\n( Votre nombre d'action vous permet d'en vendre "+nb_share_A+". )" )
+            sell_amount = prompt( "You will sell shares.\nHow many do you wanna sell ?\n( Your share's amount allow you to sell "+nb_share_A+". )" )
         }while( sell_amount > nb_share_A || sell_amount < 0 || !IaN( sell_amount ) );
         nb_share_A -= sell_amount;
         nb_points+=( sell_amount * share_A_value );
@@ -474,7 +474,7 @@ function sell_B(){
     if( nb_share_B>0 ){
         let sell_amount = 0;
         do{
-            sell_amount = prompt( "Vous êtes sur le point de vendre des actions.\nCombien voulez-vous en vendre ?\n( Votre nombre d'action vous permet d'en vendre "+nb_share_A+". )" )
+            sell_amount = prompt( "You will sell shares.\nHow many do you wanna sell ?\n( Your share's amount allow you to sell "+nb_share_A+". )" )
         }while( sell_amount > nb_share_B || sell_amount < 0 || !IaN( sell_amount ) );
         nb_share_B -= sell_amount;
         nb_points+=( sell_amount * share_B_value );
