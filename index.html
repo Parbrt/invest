@@ -8,15 +8,15 @@
 </head>
 <body>
   <p>Exercices</p>
-  <button onclick="bonjour()">Bonjour</button>
-  <button onclick="nom()">Nom</button>
-  <button onclick="guess()">Guess</button>
-  <button onclick="gambling()">Gambling time !</button>
-  <button onclick="jeu_du_cochon()">Jeu du cochon.</button>
+  <button onclick="bonjour()">Hello !</button>
+  <button onclick="nom()">Name</button>
+  <button onclick="guess()">Guess the numbre</button>
+  <button onclick="gambling()">Gambling</button>
+  <button onclick="jeu_du_cochon()">Pig game</button>
   <table>
     <tbody>
       <tr>
-        <th id = "txt_points">de points :</th>
+        <th id = "txt_points">Numbre of point</th>
         <td id = "nb_points"></td>
       </tr>
       <tr>
@@ -30,24 +30,74 @@
     </tbody>
   </table>
   <button onclick="pay_debt()">Pay debt</button>
-  <p>--Investissement--</p>
-  <p id="var_fun"></p>
-  <canvas id="myChart" style="width:100%;max-width:400px"></canvas> 
-  <button onclick="buy()">Buy</button>
-  <button onclick="sell()">Sell</button>
   <table>
+    <thead>
+      <tr>
+        <th>--Investment A--</th>
+        <th>--Investment B--</th>
+      </tr>
+
+    </thead>
     <tbody>
       <tr>
-        <th >Valeur d'une action :</th>
-        <td id="share_value"></td>
+        <td id="var_fun_A"></td>
+        <td id="var_fun_B"></td>
       </tr>
       <tr>
-        <th>Vos actions :</th>
-        <td id="nb_share"></td>
+        <td>
+          <canvas id="myChart_A" style="width:100%;max-width:400px"></canvas> 
+        </td>
+        <td>
+          <canvas id="myChart_B" style="width:100%;max-width:400px"></canvas> 
+        </td>
       </tr>
       <tr>
-        <th>Bénefice moyen de vos actions :</th>
-        <td id="avg_share_value"></td>
+        <td>
+          <button onclick="buy_A()">Buy</button>
+          <button onclick="sell_A()">Sell</button>
+        </td>
+        <td>
+          <button onclick="buy_B()">Buy</button>
+          <button onclick="sell_B()">Sell</button>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <table>
+            <tbody>
+              <tr>
+                <th >Valeur d'une action :</th>
+                <td id="share_A_value"></td>
+              </tr>
+              <tr>
+                <th>Vos actions :</th>
+                <td id="nb_share_A"></td>
+              </tr>
+              <tr>
+                <th>Bénefice moyen de vos actions :</th>
+                <td id="avg_share_A_value"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
+        <td>
+          <table>
+            <tbody>
+              <tr>
+                <th >Valeur d'une action :</th>
+                <td id="share_B_value"></td>
+              </tr>
+              <tr>
+                <th>Vos actions :</th>
+                <td id="nb_share_B"></td>
+              </tr>
+              <tr>
+                <th>Bénefice moyen de vos actions :</th>
+                <td id="avg_share_B_value"></td>
+              </tr>
+            </tbody>
+          </table>
+        </td>
       </tr>
     </tbody>
   </table>
