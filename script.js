@@ -447,7 +447,7 @@ function buy_A(){
 }
 function buy_B(){
     /*save();*/
-    if( nb_points>=share_B_value && share_A_value > 0){
+    if( nb_points>=share_B_value && share_B_value > 0){
         let buy_amount = 0; 
         do{
             buy_amount=prompt( "You will buy shares.\nHow many do you wanna buy ?\n( Your point's amount allow you to buy "+Math.floor( nb_points/share_B_value )+". )" );
