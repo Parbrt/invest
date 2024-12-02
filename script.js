@@ -105,6 +105,9 @@ function tick(){
         nb_debt -=nb_points;
         nb_points = 0;
     }
+    if (nb_debt >0){
+        interets+=interets/5;
+    }
     hold();
     document.getElementById( "nb_points" ).innerHTML = nb_points;
     document.getElementById( "txt_points" ).innerHTML = txt_points;
