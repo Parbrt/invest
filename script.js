@@ -341,13 +341,12 @@ function hold(){
     document.cookie="last_last_value_A="+last_last_value_A;
     document.cookie="last_value_A="+last_value_A;
 
-    //investment B
-    
+    //investment B    
     let rand4 = (Math.random()*(base_value_B/4));
     let new_value_B;
     new_value_B = Math.floor(last_value_B - ( base_value_B / 8 ) + rand4);
-    if (new_value_B < 0){
-        new_value_B -= new_value_B;
+    if (new_value_B <= 0){
+        new_value_B = base_value_B-(3*rand4);
     }
     up_down_management( new_value_A , new_value_B );
     document.getElementById( "var_fun_B" ).innerHTML = new_value_B;
@@ -435,7 +434,7 @@ function up_down_management( new_value_A, new_value_B ){
 }
 function buy_A(){
     /*save();*/
-    if( nb_points>=share_A_value ){
+    if( nb_points>=share_A_value && share_A_value > 0){
         let buy_amount = 0; 
         do{
             buy_amount=prompt( "You will buy shares.\nHow many do you want ?\n( Your point's amount allow you to buy "+Math.floor( nb_points/share_A_value )+". )" );
@@ -448,7 +447,7 @@ function buy_A(){
 }
 function buy_B(){
     /*save();*/
-    if( nb_points>=share_B_value ){
+    if( nb_points>=share_B_value && share_A_value > 0){
         let buy_amount = 0; 
         do{
             buy_amount=prompt( "You will buy shares.\nHow many do you wanna buy ?\n( Your point's amount allow you to buy "+Math.floor( nb_points/share_B_value )+". )" );
