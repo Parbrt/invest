@@ -132,7 +132,7 @@ function nom(){
     let my_name=prompt( "What's your name ?" )
     document.cookie = "my_name="+my_name;
     alert( "My name is \""+ my_name+"\"" );
-    txt_points = "Nnumber of points of "+my_name+" :";
+    txt_points = "Number of points of "+my_name+" :";
     tick();
 }
 function guess(){
@@ -142,7 +142,7 @@ function guess(){
     let flag = false;
     let status = "0"
     while( nb_guess>0 ){
-        guess = prompt( "Try a "+( status=="0"?"":( " "+( status=="+"?"bigger":"smaller" ) ) )+"number ( between 0 and 20 ).\n" + ( nb_guess>1?( nb_guess+" remaining try." ): "Last try !" ) );
+        guess = prompt( "Try a"+( status=="0"?"":( " "+( status=="+"?" bigger":" smaller" ) ) )+" number ( between 0 and 20 ).\n" + ( nb_guess>1?( nb_guess+" remaining try." ): "Last try !" ) );
         if ( guess == rand_num ){
             alert( "Victory !\n"+rand_num );
             flag = true;
