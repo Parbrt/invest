@@ -474,7 +474,7 @@ function sell_B(){
     if( nb_share_B>0 ){
         let sell_amount = 0;
         do{
-            sell_amount = prompt( "You will sell shares.\nHow many do you wanna sell ?\n( Your share's amount allow you to sell "+nb_share_A+". )" )
+            sell_amount = prompt( "You will sell shares.\nHow many do you wanna sell ?\n( Your share's amount allow you to sell "+nb_share_B+". )" )
         }while( sell_amount > nb_share_B || sell_amount < 0 || !IaN( sell_amount ) );
         nb_share_B -= sell_amount;
         nb_points+=( sell_amount * share_B_value );
