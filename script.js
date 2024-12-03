@@ -106,7 +106,7 @@ function tick(){
         nb_points = 0;
     }
     if (nb_debt >0){
-        interets+=interets/5;
+        interets = Math.random()*5;
     }
     hold();
     document.getElementById( "nb_points" ).innerHTML = nb_points;
@@ -136,7 +136,6 @@ function nom(){
     document.cookie = "my_name="+my_name;
     alert( "My name is \""+ my_name+"\"" );
     txt_points = "Number of points of "+my_name+" :";
-    tick();
 }
 function guess(){
     let rand_num = Math.floor( Math.random()*20 )+1;
